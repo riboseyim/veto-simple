@@ -1,0 +1,11 @@
+
+
+*.o
+
+/veto-master/*.o
+
+/mq_server/*.o
+
+/mq_client/*.o
+
+

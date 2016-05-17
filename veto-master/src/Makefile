@@ -17,15 +17,16 @@ CFLAGS  = -O2 -Wall
 CPPFLAGS= -g
 DEFS    = 
 LDFLAGS = 
-LIBS    = -lnsl -lpthread -lrt -lm
+LIBS    = #-lnsl -lsocket -lpthread -lrt -lm
 INCLUDES=
-OBJS    = main.o utils.o  chg_db_pass.o
+OBJS    = main.o veto_utils.o chg_db_pass.o
 TARGET  = Veto
 
 .c.o:
 	$(CC) -I. $(CPPFLAGS) $(DEFS) $(CFLAGS) -c $<
 
 all: $(TARGET)
+
 
 $(TARGET): $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) $(LIBS) $(LDFLAGS) -o $@
@@ -39,7 +40,11 @@ clean:
 
 main.o: main.c
 	$(CC) -g -c -o main.o main.c
+
 utils.o: utils.c
-	$(CC) -g -c -o utils.o utils.c
+	$(CC) -g -c -o veto_utils.o veto_utils.c
+	
 chg_db_pass.o: chg_db_pass.c
 	$(CC) -g -c -o chg_db_pass.o chg_db_pass.c
+	
+	
