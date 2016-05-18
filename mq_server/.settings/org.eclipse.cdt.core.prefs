@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.576420594/append=true
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.576420594/appendContributed=true
-environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1083909199/LD_LIBRARY_PATH/delimiter=\:
-environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1083909199/LD_LIBRARY_PATH/operation=append
-environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1083909199/LD_LIBRARY_PATH/value=/usr/local/lib
-environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1083909199/append=true
-environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1083909199/appendContributed=true

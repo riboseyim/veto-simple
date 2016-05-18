@@ -14,16 +14,16 @@ TARGETDIR = $(SETUPDIR)/bin
 SRCDIR = .
 CC      = gcc
 CFLAGS  = -O2 -Wall
-CPPFLAGS= -g
+CPPFLAGS= -g 
 DEFS    = 
 LDFLAGS = 
-LIBS    = #-lnsl -lsocket -lpthread -lrt -lm
-INCLUDES=
+LIBS    = -lzmq  -L/usr/local/lib
+INCLUDES= -I/usr/local/include 
 
 CURR_DIR = $(shell pwd)
 OBJPATH =  $(CURR_DIR)/obj
-OBJS    = main.o veto_utils.o chg_db_pass.o
-TARGET  = veto
+OBJS    =  veto_mq_server.o veto_mq_utils.o
+TARGET  =  veto_mq_server
 
 .c.o:
 	$(CC) -I. $(CPPFLAGS) $(DEFS) $(CFLAGS) -c $<
@@ -41,14 +41,12 @@ clean:
 	-rm -f *.o *~  *.core core $(TARGET) 
 	-rm -f $(TARGETDIR)/$(TARGET)
 
-main.o: main.c
-	$(CC) -g -c -o main.o main.c
+veto_mq_server.o: veto_mq_server.c
+	$(CC) -g -c -o veto_mq_server.o veto_mq_server.c $(CPPFLAGS) $(INCLUDES)
 
-utils.o: utils.c
-	$(CC) -g -c -o veto_utils.o veto_utils.c
+veto_mq_utils.o: veto_mq_utils.c
+	$(CC) -g -c -o veto_mq_utils.o veto_mq_utils.c $(INCLUDES)
 	
-chg_db_pass.o: chg_db_pass.c
-	$(CC) -g -c -o chg_db_pass.o chg_db_pass.c
 	
 	
 	
